@@ -1,20 +1,25 @@
 <?php
     
-    // Create connection
-    // $conn = new mysqli($servername, $username, $password); 
+    // $servername = "mysql796.umbler.com:41890";
+    // $username = "doacaobrasil";
+    // $password = "transa123";
+    // $db = "doacaobrasil";
+    // //Create connection
+    // $conn = new mysqli($servername, $username, $password,$db); 
 
-    // Check connection
+    // //Check connection
     // if ($conn->connect_error) {
     //     die("Connection failed: " . $conn->connect_error);
     // } 
     
-    //echo "Connected successfully";
+    // echo "Connected successfully";
 
     function selectQuery($transa){
-        $servername = "localhost";
-        $username = "root";
-        $password = "rexona";
-        $conn = new mysqli($servername, $username, $password); 
+        $servername = "mysql796.umbler.com:41890";
+        $username = "doacaobrasil";
+        $password = "transa123";
+        $db = "doacaobrasil";
+        $conn = new mysqli($servername, $username, $password,$db); 
         return $conn->query($transa);
     }
 ?>

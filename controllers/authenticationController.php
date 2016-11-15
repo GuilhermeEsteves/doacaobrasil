@@ -2,7 +2,7 @@
     
     require('../repository/baseRepository.php');
     session_start();
-    $query = "select * from doacaobrasil.usuario where email='{0}' and senha='{1}'";
+    $query = "select u.id, u.nome, t.descricao from doacaobrasil.usuario u, tipoUsuario t where email='{0}' and senha='{1}' and t.id = u.idTipoUsuario";
 
 
     $query = str_replace('{0}',$_POST["email"],$query);
@@ -10,11 +10,9 @@
     $result = selectQuery($query);
 
     if($result->num_rows){
-        $_SESSION["nomeUsuario"] = $result->fetch_array()["nome"];
-        $_SESSION["tipoUsuario"] = $result->fetch_array()["tipoUsuario"];
-        $nomeUsuario = $_SESSION["nomeUsuario"];
-        $tipoUsuario = $_SESSION["tipoUsuario"];
-        $idUsuario = $_SESSION["idUsuario"];
+        $_SESSION["usuario"] = $result->fetch_array();
+        // print_r ($_SESSION["usuario"]['id']);
+        // return;
         require("../views/home.php");
     }
     else{

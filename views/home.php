@@ -88,11 +88,11 @@ License: You must have a valid license purchased only from themeforest(the above
 								<li class="dropdown dropdown-user">
 									<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
 										<?php
-											echo '<img alt="" class="img-circle" src="../content/img/users/'.$idUsuario.'.jpg"/>';
+											echo '<img alt="" class="img-circle" src="../content/img/users/'.$_SESSION["usuario"]["id"].'.jpg"/>';
 										?>
 										<span class="username username-hide-on-mobile">
 											<?php
-													echo $nomeUsuario." - ".($tipoUsuario==1?"Doador":"Voluntário");
+													echo $_SESSION["usuario"]['nome'] . " - " .$_SESSION["usuario"]['descricao'];
 											?>
 										</span>
 										<i class="fa fa-angle-down"></i>
@@ -262,539 +262,338 @@ License: You must have a valid license purchased only from themeforest(the above
 			
 			<div class="row">
 				<div class="row">
-				<!-------------------------------------------------------------------------------------->
-				<div class="portlet box green col-md-4 col-sm-12">
-							<div class="portlet-title">
-								<div class="caption">
-									<i class="fa fa-comments"></i>Ultimas cinco doações
-								</div>
-								
+					<!-------------------------------------------------------------------------------------->
+					<div class="portlet box green col-md-4 col-sm-12">
+						<div class="portlet-title">
+							<div class="caption">
+								<i class="fa fa-comments"></i>Ultimas cinco doações
 							</div>
-							<div class="portlet-body">
-								<div class="table-scrollable">
-									<table class="table table-striped table-hover" >
-									<thead>
+						</div>
+						<div class="portlet-body">
+							<div class="table-scrollable">
+								<table class="table table-striped table-hover" >
+								<thead>
+								<tr>
+									<th>DATA</th>
+									<th>Quantidade de Itens</th>
+									<th>Detalhes</th>										
+								</tr>
+								</thead>
+								<tbody>
 									<tr>
-										<th>
-											 DATA
-										</th>
-										<th>
-											 Quantidade de Itens
-										</th>
-										<th>
-											 Detalhes
-										</th>										
-									</tr>
-									</thead>
-									<tbody>
-									<tr>
-										<td>
-											 06/09/2016
-										</td>
-										<td align="center">
-											 31
-										</td>
-										<td>
-											 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalDetalhes">Detalhes</button>
-										</td>										
+										<td>06/09/2016</td>
+										<td align="center">31</td>
+										<td><button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalDetalhes">Detalhes</button></td>										
 									</tr>
 									<tr>
-										<td>
-											 06/09/2016
-										</td>
-										<td align="center">
-											 10
-										</td>
-										<td>
-											 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalDetalhes">Detalhes</button>
-										</td>										
+										<td>06/09/2016</td>
+										<td align="center">31</td>
+										<td><button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalDetalhes">Detalhes</button></td>										
 									</tr>
 									<tr>
-										<td>
-											 06/09/2016
-										</td>
-										<td align="center">
-											 50
-										</td>
-										<td>
-											 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalDetalhes">Detalhes</button>
-										</td>										
+										<td>06/09/2016</td>
+										<td align="center">31</td>
+										<td><button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalDetalhes">Detalhes</button></td>										
 									</tr>
 									<tr>
-										<td>
-											 06/09/2016
-										</td>
-										<td align="center">
-											 8
-										</td>
-										<td>
-											 <button type="button" class="btn btn-success"  data-toggle="modal" data-target="#modalDetalhes">Detalhes</button>
-										</td>										
+										<td>06/09/2016</td>
+										<td align="center">31</td>
+										<td><button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalDetalhes">Detalhes</button></td>										
 									</tr>
-									</tbody>
-									</table>
-								</div>
-								<div align="center">
-									<button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalNovaDoacao">Nova Doação</button>
-									<a href="historicoDoacao.html" class="btn btn-success">Histórico de Atividade</a>
-									<!--modal-->
-									<div class="modal fade" id="modalNovaDoacao">
-										<div class="modal-dialog">
-											<div class="modal-content">
-												<div class="modal-header">
-													<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&imes;</span></button>
-													<h2 class="modal-title"><b>Gostaria de escolher pra quem doar?</b></h2>
-												</div>
-												<div class="modal-body" >
+									<tr>
+										<td>06/09/2016</td>
+										<td align="center">31</td>
+										<td><button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalDetalhes">Detalhes</button></td>										
+									</tr>
+								</tbody>
+								</table>
+							</div>
+							<div align="center">
+								<button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalNovaDoacao">Nova Doação</button>
+								<a href="historicoDoacao.html" class="btn btn-success">Histórico de Atividade</a>
+								<!--modal-->
+								<div class="modal fade" id="modalNovaDoacao">
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&imes;</span></button>
+												<h2 class="modal-title"><b>Gostaria de escolher pra quem doar?</b></h2>
+											</div>
+											<div class="modal-body" >
+												
+													<h4>Gostaria de escolher para quem doar???</br>É rapido, é só escolher e clicar. ^^</h4>
+													</br>
+													<a href="escolherEspecifico.html"><button type="button" class="btn btn-success">Escolha para quem doar AQUI.</button></a>
+											</div>
+											<div class="modal-body">
 													
-														<h4>Gostaria de escolher para quem doar???</br>É rapido, é só escolher e clicar. ^^</h4>
-														</br>
-														<a href="escolherEspecifico.html"><button type="button" class="btn btn-success">Escolha para quem doar AQUI.</button></a>
-												</div>
-												<div class="modal-body">
-														
-														<h4>Não quer escolher???</br>Deixe que o sistema escolha por você. ^^</h4>
-														</br>
-														<a href="novaDoacao.html"><button type="button" class="btn btn-success">Escolhemos por você.</button></a>
-												</div>
+													<h4>Não quer escolher???</br>Deixe que o sistema escolha por você. ^^</h4>
+													</br>
+													<a href="novaDoacao.html"><button type="button" class="btn btn-success">Escolhemos por você.</button></a>
 											</div>
 										</div>
 									</div>
-	
 								</div>
-							</div>
-						</div>
-				<!-------------------------------------------------------------------------------------->
-				<div class="col-md-4 col-sm-12">
-					<!-- BEGIN PORTLET-->
-					<div class="portlet light ">
-						<div class="portlet-title">
-							<div class="caption caption-md">
-								<i class="icon-bar-chart theme-font-color hide"></i>
-								<span class="caption-subject theme-font-color bold uppercase">Ranking Municipal Doação</span>
-							</div>
-						</div>
-						<div class="portlet-body">
-							<div class="table-scrollable table-scrollable-borderless">
-								<table class="table table-hover table-light">
-								<thead>
-								<tr class="uppercase">
-									<th colspan="2">
-										 Doador
-									</th>
-									<th>
-										 Quantidade
-									</th>
-									<th>
-										 Alguma coisa
-									</th>
-								</tr>
-								</thead>
-								<tr>
-									<td class="fit">
-										<img class="user-pic" src="assets/admin/layout3/img/avatar4.jpg">
-									</td>
-									<td>
-										<a href="javascript:;" class="primary-link">Brain</a>
-									</td>
-									<td>
-										 800
-									</td>
-									<td>
-										 45
-									</td>
-								</tr>
-								<tr>
-									<td class="fit">
-										<img class="user-pic" src="assets/admin/layout3/img/avatar5.jpg">
-									</td>
-									<td>
-										<a href="javascript:;" class="primary-link">Nick</a>
-									</td>
-									<td>
-										 700
-									</td>
-									<td>
-										 12
-									</td>
-								</tr>
-								<tr>
-									<td class="fit">
-										<img class="user-pic" src="assets/admin/layout3/img/avatar6.jpg">
-									</td>
-									<td>
-										<a href="javascript:;" class="primary-link">Tim</a>
-									</td>
-									<td>
-										600
-									</td>
-									<td>
-										450
-									</td>
-								</tr>
-								<tr>
-									<td class="fit">
-										<img class="user-pic" src="assets/admin/layout3/img/avatar7.jpg">
-									</td>
-									<td>
-										<a href="javascript:;" class="primary-link">Tom</a>
-									</td>
-									<td>
-										500
-									</td>
-									<td>
-										50
-									</td>
-								</tr>
-								</table>
-							</div>
-						</div>
-					</div>
-					<!-- END PORTLET-->
-				</div>
 
-				<div class="col-md-4 col-sm-12">
-					<!-- BEGIN PORTLET-->
-					<div class="portlet light ">
-						<div class="portlet-title">
-							<div class="caption caption-md">
-								<i class="icon-bar-chart theme-font-color hide"></i>
-								<span class="caption-subject theme-font-color bold uppercase">Ranking Municipal Voluntário</span>
-							</div>
-						</div>
-						<div class="portlet-body">
-							<div class="table-scrollable table-scrollable-borderless">
-								<table class="table table-hover table-light">
-								<thead>
-								<tr class="uppercase">
-									<th colspan="2">
-										 Voluntário
-									</th>
-									<th>
-										 Quantidade
-									</th>
-									<th>
-										 Alguma coisa
-									</th>
-								</tr>
-								</thead>
-								<tr>
-									<td class="fit">
-										<img class="user-pic" src="assets/admin/layout3/img/avatar4.jpg">
-									</td>
-									<td>
-										<a href="javascript:;" class="primary-link">Brain</a>
-									</td>
-									<td>
-										 800
-									</td>
-									<td>
-										 45
-									</td>
-								</tr>
-								<tr>
-									<td class="fit">
-										<img class="user-pic" src="assets/admin/layout3/img/avatar5.jpg">
-									</td>
-									<td>
-										<a href="javascript:;" class="primary-link">Nick</a>
-									</td>
-									<td>
-										 700
-									</td>
-									<td>
-										 12
-									</td>
-								</tr>
-								<tr>
-									<td class="fit">
-										<img class="user-pic" src="assets/admin/layout3/img/avatar6.jpg">
-									</td>
-									<td>
-										<a href="javascript:;" class="primary-link">Tim</a>
-									</td>
-									<td>
-										 600
-									</td>
-									<td>
-										 450
-									</td>
-								</tr>
-								<tr>
-									<td class="fit">
-										<img class="user-pic" src="assets/admin/layout3/img/avatar7.jpg">
-									</td>
-									<td>
-										<a href="javascript:;" class="primary-link">Tom</a>
-									</td>
-									<td>
-										 500
-									</td>
-									<td>
-										 50
-									</td>
-								</tr>
-								</table>
 							</div>
 						</div>
 					</div>
-					<!-- END PORTLET-->
-				</div>
-				</div>
-				<div class="portlet box green col-md-4 col-sm-12">
+					<!-------------------------------------------------------------------------------------->
+					<div class="col-md-4 col-sm-12">
+						<!-- BEGIN PORTLET-->
+						<div class="portlet light ">
 							<div class="portlet-title">
-								<div class="caption">
-									<i class="fa fa-comments"></i>Ultimas cinco Atividades
+								<div class="caption caption-md">
+									<i class="icon-bar-chart theme-font-color hide"></i>
+									<span class="caption-subject theme-font-color bold uppercase">Ranking Doação</span>
 								</div>
-								
 							</div>
 							<div class="portlet-body">
-								<div class="table-scrollable">
-									<table class="table table-striped table-hover" >
+								<div class="table-scrollable table-scrollable-borderless">
+									<table class="table table-hover table-light">
 									<thead>
-									<tr>
-										<th>
-											 DATA
+									<tr class="uppercase">
+										<th colspan="2">
+											Doador
 										</th>
 										<th>
-											 Quantidade de Itens
+											Quantidade
 										</th>
 										<th>
-											 Detalhes
-										</th>										
+											Alguma coisa
+										</th>
 									</tr>
 									</thead>
-									<tbody>
 									<tr>
-										<td>
-											 06/09/2016
-										</td>
-										<td align="center">
-											 31
+										<td class="fit">
+											<img class="user-pic" src="assets/admin/layout3/img/avatar4.jpg">
 										</td>
 										<td>
-											 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalDetalhesAtv">Detalhes</button>
-										</td>										
+											<a href="javascript:;" class="primary-link">Brain</a>
+										</td>
+										<td>
+											800
+										</td>
+										<td>
+											45
+										</td>
 									</tr>
 									<tr>
-										<td>
-											 06/09/2016
-										</td>
-										<td align="center">
-											 10
+										<td class="fit">
+											<img class="user-pic" src="assets/admin/layout3/img/avatar5.jpg">
 										</td>
 										<td>
-											 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalDetalhesAtv">Detalhes</button>
-										</td>										
+											<a href="javascript:;" class="primary-link">Nick</a>
+										</td>
+										<td>
+											700
+										</td>
+										<td>
+											12
+										</td>
 									</tr>
 									<tr>
-										<td>
-											 06/09/2016
-										</td>
-										<td align="center">
-											 50
+										<td class="fit">
+											<img class="user-pic" src="assets/admin/layout3/img/avatar6.jpg">
 										</td>
 										<td>
-											 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalDetalhesAtv">Detalhes</button>
-										</td>										
+											<a href="javascript:;" class="primary-link">Tim</a>
+										</td>
+										<td>
+											600
+										</td>
+										<td>
+											450
+										</td>
 									</tr>
 									<tr>
-										<td>
-											 06/09/2016
-										</td>
-										<td align="center">
-											 8
+										<td class="fit">
+											<img class="user-pic" src="assets/admin/layout3/img/avatar7.jpg">
 										</td>
 										<td>
-											 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalDetalhesAtv">Detalhes</button>
-										</td>										
+											<a href="javascript:;" class="primary-link">Tom</a>
+										</td>
+										<td>
+											500
+										</td>
+										<td>
+											50
+										</td>
 									</tr>
-									</tbody>
 									</table>
+								</div>
+							</div>
+						</div>
+						<!-- END PORTLET-->
+					</div>
 
+					<div class="col-md-4 col-sm-12">
+						<!-- BEGIN PORTLET-->
+						<div class="portlet light ">
+							<div class="portlet-title">
+								<div class="caption caption-md">
+									<i class="icon-bar-chart theme-font-color hide"></i>
+									<span class="caption-subject theme-font-color bold uppercase">Ranking Voluntário</span>
 								</div>
-								<div align="center">
-									<a href="novaAtividade.html" class="btn btn-success">Nova Atividade</a>
-									<a href="historicoAtvVoluntario.html" class="btn btn-success">Histórico de Atividade</a>
+							</div>
+							<div class="portlet-body">
+								<div class="table-scrollable table-scrollable-borderless">
+									<table class="table table-hover table-light">
+									<thead>
+									<tr class="uppercase">
+										<th colspan="2">
+											Voluntário
+										</th>
+										<th>
+											Quantidade
+										</th>
+										<th>
+											Alguma coisa
+										</th>
+									</tr>
+									</thead>
+									<tr>
+										<td class="fit">
+											<img class="user-pic" src="assets/admin/layout3/img/avatar4.jpg">
+										</td>
+										<td>
+											<a href="javascript:;" class="primary-link">Brain</a>
+										</td>
+										<td>
+											800
+										</td>
+										<td>
+											45
+										</td>
+									</tr>
+									<tr>
+										<td class="fit">
+											<img class="user-pic" src="assets/admin/layout3/img/avatar5.jpg">
+										</td>
+										<td>
+											<a href="javascript:;" class="primary-link">Nick</a>
+										</td>
+										<td>
+											700
+										</td>
+										<td>
+											12
+										</td>
+									</tr>
+									<tr>
+										<td class="fit">
+											<img class="user-pic" src="assets/admin/layout3/img/avatar6.jpg">
+										</td>
+										<td>
+											<a href="javascript:;" class="primary-link">Tim</a>
+										</td>
+										<td>
+											600
+										</td>
+										<td>
+											450
+										</td>
+									</tr>
+									<tr>
+										<td class="fit">
+											<img class="user-pic" src="assets/admin/layout3/img/avatar7.jpg">
+										</td>
+										<td>
+											<a href="javascript:;" class="primary-link">Tom</a>
+										</td>
+										<td>
+											500
+										</td>
+										<td>
+											50
+										</td>
+									</tr>
+									</table>
 								</div>
-								
 							</div>
 						</div>
-				<div class="col-md-4 col-sm-12">
-					<!-- BEGIN PORTLET-->
-					<div class="portlet light ">
+						<!-- END PORTLET-->
+					</div>
+					</div>
+					<div class="portlet box green col-md-4 col-sm-12">
 						<div class="portlet-title">
-							<div class="caption caption-md">
-								<i class="icon-bar-chart theme-font-color hide"></i>
-								<span class="caption-subject theme-font-color bold uppercase">Ranking Nacional Doação</span>
+							<div class="caption">
+								<i class="fa fa-comments"></i>Ultimas cinco Atividades
 							</div>
 						</div>
 						<div class="portlet-body">
-							<div class="table-scrollable table-scrollable-borderless">
-								<table class="table table-hover table-light">
+							<div class="table-scrollable">
+								<table class="table table-striped table-hover" >
 								<thead>
-								<tr class="uppercase">
-									<th colspan="2">
-										 Doador
+								<tr>
+									<th>
+											DATA
 									</th>
 									<th>
-										 Quantidade
+											Quantidade de Itens
 									</th>
 									<th>
-										 Alguma coisa
-									</th>
+											Detalhes
+									</th>										
 								</tr>
 								</thead>
+								<tbody>
 								<tr>
-									<td class="fit">
-										<img class="user-pic" src="assets/admin/layout3/img/avatar4.jpg">
+									<td>
+											06/09/2016
+									</td>
+									<td align="center">
+											31
 									</td>
 									<td>
-										<a href="javascript:;" class="primary-link">Brain</a>
-									</td>
-									<td>
-										 800
-									</td>
-									<td>
-										 45
-									</td>
+											<button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalDetalhesAtv">Detalhes</button>
+									</td>										
 								</tr>
 								<tr>
-									<td class="fit">
-										<img class="user-pic" src="assets/admin/layout3/img/avatar5.jpg">
+									<td>
+											06/09/2016
+									</td>
+									<td align="center">
+											10
 									</td>
 									<td>
-										<a href="javascript:;" class="primary-link">Nick</a>
-									</td>
-									<td>
-										 700
-									</td>
-									<td>
-										 12
-									</td>
+											<button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalDetalhesAtv">Detalhes</button>
+									</td>										
 								</tr>
 								<tr>
-									<td class="fit">
-										<img class="user-pic" src="assets/admin/layout3/img/avatar6.jpg">
+									<td>
+											06/09/2016
+									</td>
+									<td align="center">
+											50
 									</td>
 									<td>
-										<a href="javascript:;" class="primary-link">Tim</a>
-									</td>
-									<td>
-										 600
-									</td>
-									<td>
-										 450
-									</td>
+											<button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalDetalhesAtv">Detalhes</button>
+									</td>										
 								</tr>
 								<tr>
-									<td class="fit">
-										<img class="user-pic" src="assets/admin/layout3/img/avatar7.jpg">
+									<td>
+											06/09/2016
+									</td>
+									<td align="center">
+											8
 									</td>
 									<td>
-										<a href="javascript:;" class="primary-link">Tom</a>
-									</td>
-									<td>
-										 500
-									</td>
-									<td>
-										 50
-									</td>
+											<button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalDetalhesAtv">Detalhes</button>
+									</td>										
 								</tr>
+								</tbody>
 								</table>
+
 							</div>
+							<div align="center">
+								<a href="novaAtividade.html" class="btn btn-success">Nova Atividade</a>
+								<a href="historicoAtvVoluntario.html" class="btn btn-success">Histórico de Atividade</a>
+							</div>
+							
 						</div>
 					</div>
-					<!-- END PORTLET-->
-				</div>
-				<div class="col-md-4 col-sm-12">
-					<!-- BEGIN PORTLET-->
-					<div class="portlet light ">
-						<div class="portlet-title">
-							<div class="caption caption-md">
-								<i class="icon-bar-chart theme-font-color hide"></i>
-								<span class="caption-subject theme-font-color bold uppercase">Ranking Nacional Voluntário</span>
-							</div>
-						</div>
-						<div class="portlet-body">
-							<div class="table-scrollable table-scrollable-borderless">
-								<table class="table table-hover table-light">
-								<thead>
-								<tr class="uppercase">
-									<th colspan="2">
-										 Voluntário
-									</th>
-									<th>
-										 Quantidade
-									</th>
-									<th>
-										 Alguma coisa
-									</th>
-								</tr>
-								</thead>
-								<tr>
-									<td class="fit">
-										<img class="user-pic" src="assets/admin/layout3/img/avatar4.jpg">
-									</td>
-									<td>
-										<a href="javascript:;" class="primary-link">Brain</a>
-									</td>
-									<td>
-										 800
-									</td>
-									<td>
-										 45
-									</td>
-								</tr>
-								<tr>
-									<td class="fit">
-										<img class="user-pic" src="assets/admin/layout3/img/avatar5.jpg">
-									</td>
-									<td>
-										<a href="javascript:;" class="primary-link">Nick</a>
-									</td>
-									<td>
-										 700
-									</td>
-									<td>
-										 12
-									</td>
-								</tr>
-								<tr>
-									<td class="fit">
-										<img class="user-pic" src="assets/admin/layout3/img/avatar6.jpg">
-									</td>
-									<td>
-										<a href="javascript:;" class="primary-link">Tim</a>
-									</td>
-									<td>
-										 600
-									</td>
-									<td>
-										 450
-									</td>
-								</tr>
-								<tr>
-									<td class="fit">
-										<img class="user-pic" src="assets/admin/layout3/img/avatar7.jpg">
-									</td>
-									<td>
-										<a href="javascript:;" class="primary-link">Tom</a>
-									</td>
-									<td>
-										 500
-									</td>
-									<td>
-										 50
-									</td>
-								</tr>
-								</table>
-							</div>
-						</div>
-					</div>
-					<!-- END PORTLET-->
-				</div>
-			</div>			
+				</div>			
 			</div>			
 			<!-- END PAGE CONTENT INNER -->
 		</div>
