@@ -14,12 +14,12 @@
     
     // echo "Connected successfully";
 
-    function selectQuery($transa){
+    function selectQuery($query){
         $servername = "mysql796.umbler.com:41890";
         $username = "doacaobrasil";
         $password = "transa123";
         $db = "doacaobrasil";
         $conn = new mysqli($servername, $username, $password,$db); 
-        return $conn->query($transa);
+        return $conn->query($query);
     }
 ?>

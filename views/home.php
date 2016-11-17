@@ -323,7 +323,7 @@ License: You must have a valid license purchased only from themeforest(the above
 												
 													<h4>Gostaria de escolher para quem doar???</br>É rapido, é só escolher e clicar. ^^</h4>
 													</br>
-													<a href="escolherEspecifico.html"><button type="button" class="btn btn-success">Escolha para quem doar AQUI.</button></a>
+													<a href="../views/escolherEspecifico.php"><button type="button" class="btn btn-success">Escolha para quem doar AQUI.</button></a>
 											</div>
 											<div class="modal-body">
 													
