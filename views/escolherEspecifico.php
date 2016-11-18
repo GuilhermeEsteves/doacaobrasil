@@ -19,7 +19,8 @@ License: You must have a valid license purchased only from themeforest(the above
 <head>
 	<meta charset="UTF-8">
 <?php 
-	include "includes/header.php"
+	include "includes/header.php";
+	session_start();
 ?>
 </head>
 <!-- END HEAD -->
@@ -84,16 +85,25 @@ License: You must have a valid license purchased only from themeforest(the above
 								<!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
 									<li class="dropdown dropdown-user">
 										<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-											<img alt="" class="img-circle" src="assets/admin/layout2/img/avatar3_small.jpg"/>
-											<span class="username username-hide-on-mobile">
-											Luan</span>
-											<i class="fa fa-angle-down"></i>
+											<?php
+											echo '<img alt="" class="img-circle" src="../content/img/users/'.$_SESSION["usuario"]["id"].'.jpg"/>';
+										?>
+										<span class="username username-hide-on-mobile">
+											<?php
+													echo $_SESSION["usuario"]['nome'] . " - " .$_SESSION["usuario"]['descricao'];
+											?>
+										</span>
 										</a>
 										<ul class="dropdown-menu dropdown-menu-default">
 											<li>
 												<a href="extra_lock.html">
 												<i class="icon-lock"></i> Configuração </a>
 											</li>
+											<li>
+											<a href="javascript:void(0);" 
+												onclick="window.location.href='/doacaobrasil'">
+											<i class="icon-logout"></i> Sair </a>
+										</li>
 										</ul>
 										
 									</li>
@@ -251,61 +261,28 @@ License: You must have a valid license purchased only from themeforest(the above
 			<div class="col-sm-4 "></div>
 				<div class="form-group col-sm-4 portlet light" id="filtro">
 					<label><H1><b>Estádo:</b></H1></label>
-					<select class="form-control">
-						
+					<select id="ddlEstado" class="form-control">
+						<option value="">Selecione um estado</option>
 						<?php 
 							require('../repository/baseRepository.php');
 							$result = selectQuery("select * from tb_estados");
 							if($result){
-								// Cycle through results
 								while ($row = $result->fetch_array()){
-									echo '<option value="'.$row["id"].'">'.$row["nome"].'</option>';
+									echo '<option value="'.$row["id"].'">'.$row["uf"].'</option>';
 								}
-							
 							}
 						?>
 					</select>
 					<label><H1><b>Cidade:</b></H1></label>
-					<select class="form-control">
-						<option>AC</option>
-						<option>AL</option>
-						<option>AP</option>
-						<option>AM</option>
-						<option>BA</option>
-						<option>CE</option>
-						<option>DF</option>
-						<option>ES</option>
-						<option>GO</option>
-						<option>MA</option>
-						<option>MT</option>
-						<option>MS</option>
-						<option>MG</option>
-						<option>PA</option>
-						<option>PB</option>
-						<option>PR</option>
-						<option>PE</option>
-						<option>PI</option>
-						<option>RJ</option>
-						<option>RN</option>
-						<option>RS</option>
-						<option>RO</option>
-						<option>RR</option>
-						<option>SC</option>
-						<option>SP</option>
-						<option>SE</option>
-						<option>TO</option>
-
-
+					<select id="ddlCidade" class="form-control">
+						<option value="">Selecione uma cidade</option>
 					</select>
 					<br>
 					<div align="center">
 					<button type="button" class="btn btn-success" onclick="escondeFiltro()">Buscar</button>
 						
 					</div>
-					
 				</div>			
-					
-				
 			</div>
 			<div class="portlet box green" id="grid" style="display: block">
 				<div class="portlet-title">
@@ -412,7 +389,7 @@ License: You must have a valid license purchased only from themeforest(the above
 				</div>
 			</div>
 			<div class="" align="center" >
-				<a href="principal2.html" class="btn btn-lg green">Voltar para pagina inicial </a>
+				<a href="/doacaobrasil/controllers/authenticationController.php" class="btn btn-lg green">Voltar para pagina inicial </a>
 			</div>
 			
 			<!-- END PAGE CONTENT INNER -->
@@ -449,9 +426,9 @@ License: You must have a valid license purchased only from themeforest(the above
 			</div>
 			<div class="col-md-3 col-sm-3">
 				<b>Parceiros:</b><br/>
-				<img src="logo-itau.png" style="width: 15%;margin-right:5px;"/>
-				<img src="logo-adidas.png" style="width: 15%;margin-right:5px;"/>
-				<img src="logo-cs.png" style="width: 15%;"/>
+				<img src="../content/img/logo-itau.png" style="width: 15%;margin-right:5px;"/>
+				<img src="../content/img/logo-adidas.png" style="width: 15%;margin-right:5px;"/>
+				<img src="../content/img/logo-cs.png" style="width: 15%;"/>
 			</div>
 			<div class="col-md-2 col-sm-2">
 				Faça uma Doação:<br/>
@@ -459,7 +436,7 @@ License: You must have a valid license purchased only from themeforest(the above
 				Toda a doação vai para o sistema
 			</div>
 			<div class="col-md-2 col-sm-2">
-				<img src="logo-paypal.png" style="width: 38%; cursor: pointer;"/>
+				<img src="../content/img/logo-paypal.png" style="width: 38%; cursor: pointer;"/>
 			</div>
 		</div>
 	<div class="scroll-to-top">
@@ -495,6 +472,20 @@ jQuery(document).ready(function() {
  Tasks.initDashboardWidget(); // init tash dashboard widget  
  RevosliderInit.initRevoSlider();
 });
+
+	$('#ddlEstado').change(function(){
+		if($(this).val() == ""){
+			$('#ddlCidade').html("<option>Selecione uma cidade</option>");
+			return;
+		}
+		$('#ddlCidade').html("<option>Carregando...</option>").prop('disabled',true);
+		$.get('/doacaobrasil/controllers/filtraCidadeEstado.php',{UF: $(this).val()})
+			.success(function(data){
+				$('#ddlCidade').html(data).prop('disabled',false);
+			}).error(function(){
+				alert('Falha ao buscar cidades');
+			});
+	});
 </script>
 <!-- END JAVASCRIPTS -->
 </body>

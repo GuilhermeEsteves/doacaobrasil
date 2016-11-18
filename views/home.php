@@ -629,9 +629,9 @@ License: You must have a valid license purchased only from themeforest(the above
 			</div>
 			<div class="col-md-3 col-sm-3">
 				<b>Parceiros:</b><br/>
-				<img src="logo-itau.png" style="width: 15%;margin-right:5px;"/>
-				<img src="logo-adidas.png" style="width: 15%;margin-right:5px;"/>
-				<img src="logo-cs.png" style="width: 15%;"/>
+				<img src="../content/img/logo-itau.png" style="width: 15%;margin-right:5px;"/>
+				<img src="../content/img/logo-adidas.png" style="width: 15%;margin-right:5px;"/>
+				<img src="../content/img/logo-cs.png" style="width: 15%;"/>
 			</div>
 			<div class="col-md-2 col-sm-2">
 				Faça uma Doação:<br/>
@@ -639,178 +639,9 @@ License: You must have a valid license purchased only from themeforest(the above
 				Toda a doação vai para o sistema
 			</div>
 			<div class="col-md-2 col-sm-2">
-				<img src="logo-paypal.png" style="width: 38%; cursor: pointer;"/>
+				<img src="../content/img/logo-paypal.png" style="width: 38%; cursor: pointer;"/>
 			</div>
 		</div>
-		<div class="modal fade" id="modalDetalhes" >
-			<div class="modal-dialog" style="width:70%">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&imes;</span></button>
-						<h2 class="modal-title"><b>Detalhe da Doação</b></h2>
-					</div>
-					<div class="modal-body" >
-						<!-- GRID -->
-						<div class="portlet box green" id="grid" >
-				<div class="portlet-title">
-					<div class="caption">
-						<i class="fa fa-search"></i>Escolha para quem doar
-					</div>
-				</div>
-				<div class="portlet-body flip-scroll">
-					<table class="table table-bordered table-striped table-condensed flip-content">
-					<thead class="flip-content">
-					<tr>
-						<th width="20%">
-							 Nome
-						</th>
-						<th class="">
-							 Tipo
-						</th>
-						<th>
-							 Item
-						</th>
-						<th class="">
-							 Quantidade
-						</th>
-						<th class="">
-							 Tamanho
-						</th>
-						<th class="">
-							 Sexo
-						</th>
-						<th class="">
-							 Observação
-						</th>
-						<th class="">
-							 Data
-						</th>
-					</tr>
-					</thead>
-					<tbody>
-					<tr>
-						<td>
-							 Guilherme Esteves
-						</td>
-						<td>
-							 Roupa
-						</td>
-						<td>
-							 Camisa
-						</td>
-						<td class="">
-							 5
-						</td>						
-						<td class="">
-							 PP
-						</td>
-						<td class="">
-							 M
-						</td>
-						<td class="">
-							 
-						</td>
-						<td class="">
-							 10/09/2015
-						</td>
-					</tr>
-					
-					</tbody>
-					</table>
-					
-					 
-				</div>
-
-			</div>
-		</div>
-			<!-- 88888888888888 Modal Detalhes Atividade 8888888888888888888888 -->
-
-					</div>
-				</div>
-			</div>	
-		<div class="modal fade" id="modalDetalhesAtv">
-			<div class="modal-dialog" style="width:70%">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&imes;</span></button>
-						<h2 class="modal-title"><b>Detalhe da Doação</b></h2>
-					</div>
-					<div class="modal-body" >
-						<!-- GRID -->
-						<div class="portlet box green" id="grid" >
-				<div class="portlet-title">
-					<div class="caption">
-						<i class="fa fa-search"></i>Atividade
-					</div>
-				</div>
-				<div class="portlet-body flip-scroll">
-					<table class="table table-bordered table-striped table-condensed flip-content">
-					<thead class="flip-content">
-					<tr>
-						<th width="20%">
-							 Nome
-						</th>
-						<th class="">
-							 Estado
-						</th>
-						<th>
-							 Cidade
-						</th>
-						<th class="">
-							 Bairro	
-						</th>
-						<th class="">
-							 Tipo
-						</th>
-						<th class="">
-							 Item
-						</th>
-						<th class="">
-							 Quantidade
-						</th>
-						<th class="">
-							 Data
-						</th>
-					</tr>
-					</thead>
-					<tbody>
-					<tr>
-						<td>
-							 Guilherme Esteves
-						</td>
-						<td>
-							 SP
-						</td>
-						<td>
-							 Franca
-						</td>
-						<td class="">
-							 Noemia
-						</td>						
-						<td class="">
-							 Roupa
-						</td>
-						<td class="">
-							 Camisa
-						</td>
-						<td class="">
-							 5
-						</td>
-						<td class="">
-							 10/09/2015
-						</td>
-					</tr>
-					
-					</tbody>
-					</table>
-					
-					 
-				</div>
-
-			</div>
-	</div>
-	</div>
-	</div>
 	<div class="scroll-to-top">
 		<i class="icon-arrow-up"></i>
 	</div>

@@ -2,6 +2,12 @@
     
     require('../repository/baseRepository.php');
     session_start();
+
+    if(isset($_SESSION['usuario'])){
+        require("../views/home.php");
+        return;
+    }
+
     $query = "select u.id, u.nome, t.descricao from doacaobrasil.usuario u, tipoUsuario t where email='{0}' and senha='{1}' and t.id = u.idTipoUsuario";
 
 
